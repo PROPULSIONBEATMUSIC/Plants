@@ -1,23 +1,19 @@
-import Abstract.AbstractOutdoorPlant;
-import Plants.AloeOutdoor;
-import Plants.ChamomileOutdoor;
-import Types.Aloe;
-import Types.Chamomile;
-import Types.PlantFactory;
-
-class OutdoorPlant extends AbstractOutdoorPlant implements PlantFactory {
-
-    public OutdoorPlant(int size, String name) {
-        super(size, name);
+public abstract class OutdoorPlant extends Plant {
+    protected final String type = "outdoor";
+    public OutdoorPlant(String name, Integer size) {
+        super(name, size);
     }
 
-    @Override
-    public Aloe createAloe() {
-        return new AloeOutdoor(10, "Aloe outdoor");
-    }
+    public void showInfo(){
+        System.out.println("NAME: " + name + "\n" + "SIZE: " + size + "\n" + "TYPE: " + type + "\n");
+    };
 
     @Override
-    public Chamomile createChamomile() {
-        return new ChamomileOutdoor(3, "Chamomile outdoor");
+    public String toString() {
+        return "OutdoorPlant{" +
+                "name='" + name + '\'' +
+                ", size=" + size +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
